@@ -10,15 +10,24 @@ public class ParseUtils {
 
         for (Element element : elements) {
             String feature = element.text();
-
             String[] arg = feature.split(" ");
 
             switch (arg[1]) {
                 case "ГБ" -> tariffDto.setInternet(feature);
                 case "ТВ" -> tariffDto.setTv(feature);
                 case "минут" -> tariffDto.setMinutes(feature);
-                case "Гбит/c", "Мбит/c" -> tariffDto.setWifi(feature);
+                default -> tariffDto.setWifi(feature);
             }
         }
+    }
+
+    public static long getPrice(int i, Elements cards) {
+        Element priceMain = cards.get(i).select("div.price-main").first();
+        String[] priceArg = priceMain.select("span.price-text").text().split(" ");
+
+        if (priceArg.length > 2) {
+            return Long.parseLong(priceArg[0] + priceArg[1]);
+        }
+        return Long.parseLong(priceArg[0]);
     }
 }

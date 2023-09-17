@@ -19,7 +19,7 @@ public class TariffServiceImpl implements TariffService {
     public void createTariff(TariffDto tariffDto) {
         Tariff tariff = new Tariff();
         tariff.setName(tariffDto.getName());
-        tariff.setDescription(tariffDto.getDescription());
+//        tariff.setDescription(tariffDto.getDescription());
         tariff.setBenefits(tariffDto.getBenefits());
         tariff.setInternet(tariffDto.getInternet());
         tariff.setMinutes(tariffDto.getMinutes());
