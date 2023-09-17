@@ -1,12 +1,10 @@
-FROM ubuntu:latest AS build
-RUN apt-get update
-RUN apt-get install openjdk-17-jdk -y
-COPY . .
-RUN ./gradlew bootJar --no-daemon
+FROM gradle:jdk17-jammy AS build
+COPY --chown=gradle:gradle . /home/gradle/src
+WORKDIR /home/gradle/src
+RUN gradle build --no-daemon
 
-FROM openjdk:17-jdk-slim
-EXPOSE 8080
+FROM eclipse-temurin:17-jdk-jammy
 FROM selenium/standalone-firefox:latest
-COPY --from=build /build/libs/demo-0.0.1-SNAPSHOT.jar demo.jar
+COPY --from=build /home/gradle/src/build/libs/demo-0.0.1-SNAPSHOT.jar demo.jar
 
 ENTRYPOINT ["java","-jar","demo.jar"]
