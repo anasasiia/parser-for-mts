@@ -6,16 +6,12 @@ import mts.parser.demo.service.TariffService;
 import mts.parser.demo.utils.WebDriver;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.io.IOException;
-import java.net.URL;
 
 import static mts.parser.demo.utils.ParseUtils.getFeatures;
 import static mts.parser.demo.utils.ParseUtils.getPrice;

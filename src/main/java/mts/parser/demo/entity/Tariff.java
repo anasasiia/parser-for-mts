@@ -1,6 +1,11 @@
 package mts.parser.demo.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -16,9 +21,6 @@ public class Tariff {
 
     @Column(name = "name")
     private String name;
-
-//    @Column(name = "description")
-//    private String description;
 
     @Column(name = "benefits")
     private String benefits;

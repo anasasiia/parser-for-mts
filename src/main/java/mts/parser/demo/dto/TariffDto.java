@@ -1,13 +1,10 @@
 package mts.parser.demo.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 public class TariffDto {
     private String name;
-//    private String description;
     private String benefits;
     private String internet;
     private String minutes;
