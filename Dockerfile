@@ -1,6 +1,7 @@
-FROM gradle:jdk19-jammy AS build
+FROM gradle:7.5.1-jdk11 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
+RUN gradle clean
 RUN gradle build
 
 FROM eclipse-temurin:19-jdk-alpine
