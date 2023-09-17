@@ -4,7 +4,7 @@ WORKDIR /home/gradle/src
 RUN gradle clean
 RUN gradle build
 
-FROM eclipse-temurin:19-jdk-alpine
+FROM eclipse-temurin:17-alpine
 FROM selenium/standalone-firefox:latest
 COPY --from=build /home/gradle/src/build/libs/demo-0.0.1-SNAPSHOT.jar demo.jar
 
